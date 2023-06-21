@@ -9,7 +9,7 @@ import pyrogram
 from tamilanbotsz import short_url
 from database.connections_mdb import active_connection, all_connections, delete_connection, if_active, make_active, \
     make_inactive
-from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, FILE_REQ_CHANNEL, HOW_TO_DOWNLOAD, PICS, \
+from info import ADMINS, AUTH_CHANNEL, AUTH_USERS, CUSTOM_FILE_CAPTION, AUTH_GROUPS, P_TTI_SHOW_OFF, IMDB, FILE_REQ_CHANNEL, HOW_TO_DOWNLOAD, PICS, PIC, \
     SINGLE_BUTTON, SPELL_CHECK_REPLY, IMDB_TEMPLATE
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, CallbackQuery
 from pyrogram import Client, filters, enums
@@ -476,7 +476,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
+        await message.reply_photo(
+            photo=random.choice(PIC),
             text=script.OWNER_TXT,
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
