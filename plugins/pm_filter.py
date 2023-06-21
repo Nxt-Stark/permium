@@ -446,17 +446,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         buttons = [[
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='help')
             ]]
-        await client.edit_message_media(
-            query.message.chat.id, 
-            query.message.id, 
-            InputMediaPhoto(PICS)
-        )
         reply_markup = InlineKeyboardMarkup(buttons)
-        await query.message.edit_text(
-            text=script.START_TXT.format(query.from_user.mention, temp.U_NAME, temp.B_NAME),
+        await query.edit_message_media(
+            InputMediaPhoto(PICS), START_TXT.format(user=query.from_user.mention, bot=temp.B_LINK), enums.ParseMode.HTML),
             reply_markup=reply_markup,
-            parse_mode=enums.ParseMode.HTML
-       )  
+        )
     elif query.data == "help":
         buttons = [[
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ᴛᴏ ᴄʟᴏsᴇ ᴛʜɪs ʙᴜᴛᴛᴏɴs ⚡️', callback_data='start')
