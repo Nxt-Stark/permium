@@ -476,7 +476,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('ʙᴀᴄᴋ', callback_data='help')
         ]]
         reply_markup = InlineKeyboardMarkup(buttons)
-        await msg.reply_photo(photo="https://telegra.ph/file/4bb1968bd091453b0070c.jpg"
+        await msg.reply_photo(photo="https://telegra.ph/file/4bb1968bd091453b0070c.jpg",
             photo=random.choice(PIC),
             text=script.OWNER_TXT,
             reply_markup=reply_markup,
