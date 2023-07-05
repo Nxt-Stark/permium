@@ -231,6 +231,14 @@ async def start(client, message):
                         InlineKeyboardButton(text=f'🌿 Fɪʟᴇ sɪᴢᴇ 【 {size} 】🌿', callback_data='gxneo')
                     ]
                     ]
+    await message.reply_chat_action(enums.ChatAction.TYPING)
+    f1 = await message.reply_text("Fɪʟᴇ Dᴇᴛᴇᴄᴛ..\n▰▱▱▱")
+    await asyncio.sleep(0.5)
+    f2 = await f1.edit("Fɪʟᴇ Cʜᴇᴄᴋɪɴɢ..\n▰▰▱▱")
+    await asyncio.sleep(0.5)
+    f4 = await f3.edit("Fɪʟᴇ Uᴘʟᴏᴀᴅɪɴɢ...\n▰▰▰▰")
+    await asyncio.sleep(0.5)
+    await f4.delete()
     await client.send_cached_media(
         chat_id=message.from_user.id,
         file_id=file_id,
