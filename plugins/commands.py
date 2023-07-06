@@ -232,11 +232,13 @@ async def start(client, message):
                     ]
                     ]
     await message.reply_chat_action(enums.ChatAction.TYPING)
-    f1 = await message.reply_text("Fɪʟᴇ Dᴇᴛᴇᴄᴛ..\n▰▱▱▱")
+    f1 = await message.reply_text(f"<b>Fɪʟᴇ Dᴇᴛᴇᴄᴛ..\n\n▰▱▱▱</b>") 
     await asyncio.sleep(0.5)
-    f2 = await f1.edit("Fɪʟᴇ Cʜᴇᴄᴋɪɴɢ..\n▰▰▱▱")
+    f2 = await f1.edit(f"<b>Fɪʟᴇ Cʜᴇᴄᴋɪɴɢ..\n\n▰▰▱▱</b>")
     await asyncio.sleep(0.5)
-    f4 = await f3.edit("Fɪʟᴇ Uᴘʟᴏᴀᴅɪɴɢ...\n▰▰▰▰")
+    f3 = await f2.edit(f"<b>Fɪʟᴇ Sᴇᴄᴜʀᴇ..\n\n▰▰▰▱</b>")
+    await asyncio.sleep(0.5)
+    f4 = await f3.edit(f"<b>Fɪʟᴇ Uᴘʟᴏᴀᴅɪɴɢ...\n\n▰▰▰▰</b>")
     await asyncio.sleep(0.5)
     await f4.delete()
     await client.send_cached_media(
