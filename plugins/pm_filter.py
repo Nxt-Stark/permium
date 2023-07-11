@@ -3,6 +3,7 @@ import asyncio
 import re
 import ast
 import random
+import datetime
 import math
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
@@ -28,6 +29,10 @@ file_req_channel = FILE_REQ_CHANNEL
 import logging
 
 logger = logging.getLogger(__name__)
+ist = pytz.timezone("Asia/Kolkata")
+    report_time = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%I:%M:%S %p")
+    report_date = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%d-%B-%Y")
+    report_day = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%A")
 logger.setLevel(logging.ERROR)
 
 BUTTONS = {}
