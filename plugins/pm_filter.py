@@ -30,9 +30,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 ist = pytz.timezone("Asia/Kolkata")
-    report_time = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%I:%M:%S %p")
-    report_date = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%d-%B-%Y")
-    report_day = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%A")
+report_time = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%I:%M:%S %p")
+report_date = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%d-%B-%Y")
+report_day = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%A")
 logger.setLevel(logging.ERROR)
 
 BUTTONS = {}
