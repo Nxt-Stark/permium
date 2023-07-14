@@ -29,11 +29,11 @@ file_req_channel = FILE_REQ_CHANNEL
 
 import datetime
 import calendar
-
-time_zone_offset = datetime.timedelta(hours=5, minutes=30)
-current_datetime = datetime.datetime.now() + time_zone_offset
-current_date = current_datetime.date()
-current_time = current_datetime.time()
+import pytz
+time_zone = pytz.timezone('Asia/Kolkata')
+current_datetime = datetime.datetime.now(time_zone)
+current_date = current_datetime.strftime('%d-%m-%Y')
+current_time = current_datetime.strftime('%I:%M:%S %p')
 current_day = calendar.day_name[current_datetime.weekday()]
 
 import logging
