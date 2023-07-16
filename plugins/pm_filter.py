@@ -3,8 +3,6 @@ import asyncio
 import re
 import ast
 import random
-import pytz
-import datetime
 import math
 from pyrogram.errors.exceptions.bad_request_400 import MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty
 from Script import script
@@ -27,14 +25,16 @@ from database.filters_mdb import (
 )
 file_req_channel = FILE_REQ_CHANNEL
 
-import logging
+import datetime
+import calendar
+import pytz
+time_zone = pytz.timezone('Asia/Kolkata')
+current_datetime = datetime.datetime.now(time_zone)
+current_date = current_datetime.strftime('%d-%m-%Y')
+current_time = current_datetime.strftime('%I:%M:%S %p')
+current_day = calendar.day_name[current_datetime.weekday()]
 
-logger = logging.getLogger(__name__)
-ist = pytz.timezone("Asia/Kolkata")
-report_time = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%I:%M:%S %p")
-report_date = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%d-%B-%Y")
-report_day = datetime.datetime.now(pytz.utc).astimezone(ist).strftime("%A")
-logger.setLevel(logging.ERROR)
+import logging
 
 BUTTONS = {}
 SPELL_CHECK = {}
@@ -725,12 +725,12 @@ async def auto_filter(client, msg, spoll=False):
             plot=imdb['plot'],
             rating=imdb['rating'],
             url=imdb['url'],
-            report_date=report_date,
-            report_time=report_time,
-            report_day=report_day 
+            current_date=current_date,
+            current_time=current_time,
+            current_day=current_day 
         )
     else:
-        cap = f"<b>🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅ ʙʏ : {message.from_user.mention}\n┣ ⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ᴅᴜʟǫᴜʀ](https://t.me/Dulquarobot)\n┗ 🍁 ᴄʜᴀɴɴᴇʟ : [ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ](https://t.me/CLMlinkz)\n\n⌚️ Tɪᴍᴇ : {report_time}\n📆 Dᴀᴛᴇ : {report_date}\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\n<i>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ  [ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ](https://t.me/Cinimalokham)</i></b>"
+        cap = f"<b>🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅ ʙʏ : {message.from_user.mention}\n┣ ⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ᴅᴜʟǫᴜʀ](https://t.me/Dulquarobot)\n┗ 🍁 ᴄʜᴀɴɴᴇʟ : [ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ](https://t.me/CLMlinkz)\n\n⌚️ Tɪᴍᴇ : {current_time}\n📆 Dᴀᴛᴇ : {current_date}\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\n<i>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ  [ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ](https://t.me/Cinimalokham)</i></b>"
     if imdb and imdb.get('poster'):
         try:
             await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024],
