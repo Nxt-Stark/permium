@@ -28,11 +28,7 @@ file_req_channel = FILE_REQ_CHANNEL
 import datetime
 import calendar
 import pytz
-time_zone = pytz.timezone('Asia/Kolkata')
-current_datetime = datetime.datetime.now(time_zone)
-current_date = current_datetime.strftime('%d-%m-%Y')
-current_time = current_datetime.strftime('%I:%M:%S %p')
-current_day = calendar.day_name[current_datetime.weekday()]
+
 
 import logging
 
@@ -695,6 +691,11 @@ async def auto_filter(client, msg, spoll=False):
     )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
+    time_zone = pytz.timezone('Asia/Kolkata')
+    current_datetime = datetime.datetime.now(time_zone)
+    current_date = current_datetime.strftime('%d-%m-%Y')
+    current_time = current_datetime.strftime('%I:%M:%S %p')
+    current_day = calendar.day_name[current_datetime.weekday()]
     if imdb:
         cap = TEMPLATE.format(
             query=search,
@@ -738,9 +739,11 @@ async def auto_filter(client, msg, spoll=False):
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
+            cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
             await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
         except Exception as e:
             logger.exception(e)
+            cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
             await message.reply_photo(photo='https://te.legra.ph/file/471172796da37b50f4f4f.jpg',caption=cap, reply_markup=InlineKeyboardMarkup(btn))
     else:
         cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
