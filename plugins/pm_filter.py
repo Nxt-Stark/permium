@@ -775,7 +775,7 @@ async def auto_filter(client, msg, spoll=False):
         if AUTO_DELETE:
                 await asyncio.sleep(10)
                 await hehe.delete()
-                await message.delete ()
+                await message.delete()
 
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
@@ -784,20 +784,20 @@ async def auto_filter(client, msg, spoll=False):
             if AUTO_DELETE:
                 await asyncio.sleep(10)
                 await hmm.delete()
-                await message.delete ()
+                await message.delete()
         except Exception as e:
             logger.exception(e)
             fek = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
             if AUTO_DELETE:
                 await asyncio.sleep(10)
                 await fek.delete()
-                await message.delete ()
+                await message.delete()
     else:
         fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
         if AUTO_DELETE:
             await asyncio.sleep(10)
             await fuk.delete()
-            await message.delete ()
+            await message.delete()
             
     
 async def advantage_spell_chok(msg):
