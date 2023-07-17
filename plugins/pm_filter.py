@@ -26,6 +26,7 @@ from database.filters_mdb import (
 file_req_channel = FILE_REQ_CHANNEL
 
 import datetime
+import time
 import calendar
 import pytz
 
@@ -508,7 +509,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         uptime_hours = (uptime_seconds % 86400) // 3600
         uptime_minutes = (uptime_seconds % 3600) // 60
         uptime_seconds_remaining = uptime_seconds % 60
-        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}<br><br>⏰ Tɪᴍᴇ : {current_time}<br>⚡️ Zᴏɴᴇ : time_zone<br>⏳ Uᴩᴛɪᴍᴇ : {uptime_weeks} ᴡᴇᴇᴋꜱ, {uptime_days}ᴅᴀyꜱ, {uptime_hours}ʜᴏᴜʀꜱ, {uptime_minutes}ᴍɪɴᴜᴛᴇꜱ, {uptime_seconds_remaining}ꜱᴇᴄᴏɴᴅꜱ<br><br>© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n⏰ Tɪᴍᴇ : {current_time}\n⚡️ Zᴏɴᴇ : time_zon\n⏳ Uᴩᴛɪᴍᴇ : {uptime_weeks} ᴡᴇᴇᴋꜱ, {uptime_days}ᴅᴀyꜱ, {uptime_hours}ʜᴏᴜʀꜱ, {uptime_minutes}ᴍɪɴᴜᴛᴇꜱ, {uptime_seconds_remaining}ꜱᴇᴄᴏɴᴅꜱ\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
         
     elif query.data == "datee1":
         time_zone = pytz.timezone('Asia/Kolkata')
@@ -516,7 +517,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         current_date = current_datetime.strftime('%d-%m-%Y')
         current_day = calendar.day_name[current_datetime.weekday()]
         time_zone_utc = pytz.timezone('UTC')
-        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}<br><br>📅 Dᴀᴛᴇ : {current_date}br>🌥️ Dᴀʏ : {current_day}<br>🌇 Uᴛᴄ : {time_zone_utc}<br><br>© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n📅 Dᴀᴛᴇ : {current_date}\n🌥️ Dᴀʏ : {current_day}\n🌇 Uᴛᴄ : {time_zone_utc}\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
         
     elif query.data == "movieinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n© ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
