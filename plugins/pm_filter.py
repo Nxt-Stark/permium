@@ -773,9 +773,9 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         await msg.message.delete()
         if AUTO_DELETE:
-                await asyncio.sleep(10)
-                await hehe.delete()
-                await message.delete()
+            await asyncio.sleep(10)
+            await hehe.delete()
+            await message.delete()
 
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
