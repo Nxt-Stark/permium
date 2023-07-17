@@ -509,7 +509,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         uptime_hours = (uptime_seconds % 86400) // 3600
         uptime_minutes = (uptime_seconds % 3600) // 60
         uptime_seconds_remaining = uptime_seconds % 60
-        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n⏰ Tɪᴍᴇ : {current_time}\n⚡️ Zᴏɴᴇ : time_zon\n⏳ Uᴩᴛɪᴍᴇ : {uptime_weeks} ᴡᴇᴇᴋꜱ, {uptime_days}ᴅᴀyꜱ, {uptime_hours}ʜᴏᴜʀꜱ, {uptime_minutes}ᴍɪɴᴜᴛᴇꜱ, {uptime_seconds_remaining}ꜱᴇᴄᴏɴᴅꜱ\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n⏰ Tɪᴍᴇ : {current_time}\n⚡️ Zᴏɴᴇ : Asia/Kolkata\n⏳ Uᴩᴛɪᴍᴇ : {uptime_weeks} ᴡᴇᴇᴋꜱ, {uptime_days}ᴅᴀyꜱ, {uptime_hours}ʜᴏᴜʀꜱ, {uptime_minutes}ᴍɪɴᴜᴛᴇꜱ, {uptime_seconds_remaining}ꜱᴇᴄᴏɴᴅꜱ\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
         
     elif query.data == "datee1":
         time_zone = pytz.timezone('Asia/Kolkata')
