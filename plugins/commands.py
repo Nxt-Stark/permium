@@ -298,7 +298,7 @@ async def comeong(bot, message):
     button1 = InlineKeyboardButton('⌚️ Tɪᴍᴇ', callback_data='timee1')
     button2 = InlineKeyboardButton('📆 Dᴀᴛᴇ', callback_data='datee1')
 
-    keyboard = InlineKeyboardMarkup().add(button1, button2)
+    keyboard = InlineKeyboardMarkup([[button1, button2]])
 
     await message.reply_text(
         text='Gʀᴏᴜᴘ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇ.<br><br>📯 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Cinimalokham',
