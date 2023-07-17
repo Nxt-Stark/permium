@@ -301,7 +301,7 @@ async def comeong(bot, message):
     keyboard = InlineKeyboardMarkup([[button1, button2]])
 
     await message.reply_text(
-        text='Gʀᴏᴜᴘ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇ.<br><br>📯 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Cinimalokham',
+        text='<b><i>Gʀᴏᴜᴘ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ\nᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30\nᴍɪɴᴜᴛᴇs ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ\nɪssᴜᴇ.\n\n📯 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Cinimalokham</i></b>',
         reply_markup=keyboard
     ) 
     await message.delete()
