@@ -18,6 +18,10 @@ logger = logging.getLogger(__name__)
 
 BATCH_FILES = {}
 
+import datetime
+import calendar
+import pytz
+
 @Client.on_message(filters.command("start") & filters.incoming)
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
@@ -288,6 +292,22 @@ async def log_file(bot, message):
         await message.reply_document('TelegramBot.log')
     except Exception as e:
         await message.reply(str(e))
+        
+@Client.on_message(filters.command('comeong') & filters.user(ADMINS))
+async def comeong(bot, message):
+        button1 = InlineKeyboardButton('⌚️ Tɪᴍᴇ', callback_data='timee1')
+        button2 = InlineKeyboardButton('📆 Dᴀᴛᴇ', callback_data='datee1')
+
+        keyboard = InlineKeyboardMarkup(row_width=2)
+        keyboard.add(button1, button2)
+
+        await message.reply_text(
+            text='Gʀᴏᴜᴘ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇ.<br><br>📯 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Cinimalokham',
+            reply_markup=keyboard
+        ) 
+        await message.delete()
+        return
+
 
 @Client.on_message(filters.command('delete') & filters.user(ADMINS))
 async def delete(bot, message):
