@@ -517,7 +517,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         current_date = current_datetime.strftime('%d-%m-%Y')
         current_day = calendar.day_name[current_datetime.weekday()]
         time_zone_utc = pytz.timezone('UTC')
-        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n📅 Dᴀᴛᴇ : {current_date}\n🌥️ Dᴀʏ : {current_day}\n🌇 Uᴛᴄ : {time_zone_utc}\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n📅 Dᴀᴛᴇ : {current_date}\n🌥️ Dᴀʏ : {current_day}\n🌇 Uᴛᴄ : +0530\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
         
     elif query.data == "movieinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n© ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
