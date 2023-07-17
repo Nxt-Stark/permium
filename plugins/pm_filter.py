@@ -773,7 +773,7 @@ async def auto_filter(client, msg, spoll=False):
     if spoll:
         await msg.message.delete()
         if AUTO_DELETE:
-                await asyncio.sleep(AUTO_DELETE_SECONDS)
+                await asyncio.sleep(10)
                 await hehe.delete()
 
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
