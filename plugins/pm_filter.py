@@ -772,7 +772,6 @@ async def auto_filter(client, msg, spoll=False):
         await message.reply_photo(photo='https://te.legra.ph/file/471172796da37b50f4f4f.jpg', caption=cap, reply_markup=InlineKeyboardMarkup(btn))
     if spoll:
         await msg.message.delete()
-        if AUTO_DELETE:
             await asyncio.sleep(10)
             await hehe.delete()
             await msg.message.delete()
@@ -780,24 +779,22 @@ async def auto_filter(client, msg, spoll=False):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            if AUTO_DELETE:
                 await asyncio.sleep(10)
                 await hmm.delete()
                 await msg.message.delete()
         except Exception as e:
             logger.exception(e)
             fek = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-            if AUTO_DELETE:
                 await asyncio.sleep(10)
                 await fek.delete()
                 await msg.message.delete()
     else:
         fuk = await message.reply_text(cap, reply_markup=InlineKeyboardMarkup(btn))
-        if AUTO_DELETE:
             await asyncio.sleep(10)
             await fuk.delete()
             await msg.message.delete()
-            
+    if spoll:
+        await msg.message.delete()            
     
 async def advantage_spell_chok(msg):
     query = re.sub(
