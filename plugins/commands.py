@@ -295,18 +295,17 @@ async def log_file(bot, message):
         
 @Client.on_message(filters.command('comeong') & filters.user(ADMINS))
 async def comeong(bot, message):
-        button1 = InlineKeyboardButton('⌚️ Tɪᴍᴇ', callback_data='timee1')
-        button2 = InlineKeyboardButton('📆 Dᴀᴛᴇ', callback_data='datee1')
+    button1 = InlineKeyboardButton('⌚️ Tɪᴍᴇ', callback_data='timee1')
+    button2 = InlineKeyboardButton('📆 Dᴀᴛᴇ', callback_data='datee1')
 
-        keyboard = InlineKeyboardMarkup(row_width=2)
-        keyboard.add(button1, button2)
+    keyboard = InlineKeyboardMarkup().add(button1, button2)
 
-        await message.reply_text(
-            text='Gʀᴏᴜᴘ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇ.<br><br>📯 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Cinimalokham',
-            reply_markup=keyboard
-        ) 
-        await message.delete()
-        return
+    await message.reply_text(
+        text='Gʀᴏᴜᴘ ᴍᴇssᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ 30 ᴍɪɴᴜᴛᴇs ᴅᴜᴇ ᴛᴏ ᴄᴏᴘʏʀɪɢʜᴛ ɪssᴜᴇ.<br><br>📯 ᴘᴏᴡᴇʀᴇᴅ ʙʏ @Cinimalokham',
+        reply_markup=keyboard
+    ) 
+    await message.delete()
+    return
 
 
 @Client.on_message(filters.command('delete') & filters.user(ADMINS))
