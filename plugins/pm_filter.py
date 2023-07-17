@@ -497,6 +497,27 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "gtheropm":
         await query.answer("📵 ᴄᴏɴᴛᴀᴄᴛ ɴᴏᴛ ᴀʟʟᴏᴡᴇᴅ\n\n- ꜱᴇᴄᴛɪᴏɴ B206 - ꜱᴘᴀᴍ + ʙᴀɴ ⚠️\n\n- ꜱᴇᴄᴛɪᴏɴ Y8R6 - ꜱᴘᴀᴍ + ʀᴇᴘᴏʀᴛ 🉐\n\n🗽 ʙʏ ◉‿◉ ɢᴛ ᠰ ʜᴇʀᴏ", show_alert=True)
         
+    elif query.data == "timee1":
+        time_zone = pytz.timezone('Asia/Kolkata')
+        current_datetime = datetime.datetime.now(time_zone)
+        current_time = current_datetime.strftime('%I:%M:%S %p')
+        start_time = time.time()
+        uptime_seconds = 604800 + 2*24*3600 + 10*3600 + 30*60 + 15
+        uptime_weeks = uptime_seconds // 604800
+        uptime_days = (uptime_seconds % 604800) // 86400
+        uptime_hours = (uptime_seconds % 86400) // 3600
+        uptime_minutes = (uptime_seconds % 3600) // 60
+        uptime_seconds_remaining = uptime_seconds % 60
+        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}<br><br>⏰ Tɪᴍᴇ : {current_time}<br>⚡️ Zᴏɴᴇ : time_zone<br>⏳ Uᴩᴛɪᴍᴇ : {uptime_weeks} ᴡᴇᴇᴋꜱ, {uptime_days}ᴅᴀyꜱ, {uptime_hours}ʜᴏᴜʀꜱ, {uptime_minutes}ᴍɪɴᴜᴛᴇꜱ, {uptime_seconds_remaining}ꜱᴇᴄᴏɴᴅꜱ<br><br>© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+        
+    elif query.data == "datee1":
+        time_zone = pytz.timezone('Asia/Kolkata')
+        current_datetime = datetime.datetime.now(time_zone)
+        current_date = current_datetime.strftime('%d-%m-%Y')
+        current_day = calendar.day_name[current_datetime.weekday()]
+        time_zone_utc = pytz.timezone('UTC')
+        await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}<br><br>📅 Dᴀᴛᴇ : {current_date}br>🌥️ Dᴀʏ : {current_day}<br>🌇 Uᴛᴄ : {time_zone_utc}<br><br>© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
+        
     elif query.data == "movieinfo":
         await query.answer("⚠ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ ⚠\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\nɪꜰ ʏᴏᴜ ᴅᴏ ɴᴏᴛ ꜱᴇᴇ ᴛʜᴇ ʀᴇǫᴜᴇsᴛᴇᴅ ᴍᴏᴠɪᴇ / sᴇʀɪᴇs ꜰɪʟᴇ, ʟᴏᴏᴋ ᴀᴛ ᴛʜᴇ ɴᴇxᴛ ᴘᴀɢᴇ\n\n© ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
         
