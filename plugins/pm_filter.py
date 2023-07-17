@@ -756,29 +756,28 @@ async def auto_filter(client, msg, spoll=False):
         cap = f"<b>🎪 ᴛɪᴛɪʟᴇ {search}\n\n┏ 🤴 ᴀsᴋᴇᴅ ʙʏ : {message.from_user.mention}\n┣ ⚡ ᴘᴏᴡᴇʀᴇᴅ ʙʏ : [ᴅᴜʟǫᴜʀ](https://t.me/Dulquarobot)\n┗ 🍁 ᴄʜᴀɴɴᴇʟ : [ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ](https://t.me/CLMlinkz)\n\n⌚️ Tɪᴍᴇ : {current_time}\n📆 Dᴀᴛᴇ : {current_date}\n\nᴀꜰᴛᴇʀ 30 ᴍɪɴᴜᴛᴇꜱ ᴛʜɪꜱ ᴍᴇꜱꜱᴀɢᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ\n\n<i>★ ᴘᴏᴡᴇʀᴇᴅ ʙʏ  [ᴄɪɴɪᴍᴀʟᴏᴋʜᴀᴍ](https://t.me/Cinimalokham)</i></b>"
     if imdb and imdb.get('poster'):
         try:
-            cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
-            await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            haha = await message.reply_photo(photo=imdb.get('poster'), caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
+            await asyncio.sleep(30)
+            await haha.delete()
+            await message.delete()
         except (MediaEmpty, PhotoInvalidDimensions, WebpageMediaEmpty):
             pic = imdb.get('poster')
             poster = pic.replace('.jpg', "._V1_UX360.jpg")
-            cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
             hmm = await message.reply_photo(photo=poster, caption=cap[:1024], reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(600)
+            await asyncio.sleep(30)
             await hmm.delete()
             await message.delete()
         except Exception as e:
             logger.exception(e)
-            cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
             fok = await message.reply_photo(photo='https://te.legra.ph/file/471172796da37b50f4f4f.jpg',caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(10)
+            await asyncio.sleep(30)
             await fok.delete()
             await message.delete()
     else:
-        cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
         hehe = await message.reply_photo(photo='https://te.legra.ph/file/471172796da37b50f4f4f.jpg', caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-            await asyncio.sleep(10)
-            await hehe.delete()
-            await msg.message.delete()
+        await asyncio.sleep(10)
+        await hehe.delete()
+        await msg.message.delete()
     if spoll:
         await msg.message.delete()            
     
