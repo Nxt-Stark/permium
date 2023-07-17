@@ -770,8 +770,6 @@ async def auto_filter(client, msg, spoll=False):
     else:
         cap = cap.format(current_date=current_date, current_time=current_time, current_day=current_day)
         await message.reply_photo(photo='https://te.legra.ph/file/471172796da37b50f4f4f.jpg', caption=cap, reply_markup=InlineKeyboardMarkup(btn))
-    if spoll:
-        await msg.message.delete()
             await asyncio.sleep(10)
             await hehe.delete()
             await msg.message.delete()
