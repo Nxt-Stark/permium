@@ -30,7 +30,7 @@ async def notify_admin(bot, message):
     reply_message += f"💬 Rᴇᴘᴏʀᴛ ᴛᴇxᴛ: {message.reply_to_message.text if message.reply_to_message else message.text.split(' ', 1)[1]}\n\n"
     reply_message += f"⏲️ Rᴇᴘᴏʀᴛ ᴛɪᴍᴇ</b>: <code>{report_time}</code>\n"
     reply_message += f"<b>🗓️ Rᴇᴘᴏʀᴛ ᴅᴀᴛᴇ</b>: <code>{report_date}</code>\n"
-    reply_message += f"<b>⛅ Rᴇᴘᴏʀᴛ ᴅᴀʏ</b>: <code>{report_day}</code></b>"
+    reply_message += f"<b>⛅ Rᴇᴘᴏʀᴛ ᴅᴀʏ</b>: <code>{report_day}</code>"
 
     report = message.reply_to_message if message.reply_to_message else message
     m = await message.reply_text(reply_message, disable_web_page_preview=True)
