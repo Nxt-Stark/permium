@@ -25,12 +25,12 @@ async def notify_admin(bot, message):
 
     reply_message = f"<b><i>✅ Rᴇᴩᴏʀᴛ Sᴇɴᴅ Sᴜᴄᴄᴇꜱꜱꜰᴜʟʟ ✅</i></b>\n\n"
     reply_message += f"<b>👤 Rᴇᴘᴏʀᴛᴇᴅ ᴜsᴇʀ: {message.from_user.username}\n"
-    reply_message += f"🆔 Rᴇᴘᴏʀᴛᴇᴅ ᴜsᴇʀ ɪᴅ: {message.from_user.id}\n"
-    reply_message += f"📝 Rᴇᴘᴏʀᴛ ᴛʀᴀᴄᴋ ɪᴅ: [#TG8836467]({message.link})\n\n"
+    reply_message += f"🆔 Rᴇᴘᴏʀᴛᴇᴅ ᴜsᴇʀ ɪᴅ</b>: <code>{message.from_user.id}</code>\n"
+    reply_message += f"<b>📝 Rᴇᴘᴏʀᴛ ᴛʀᴀᴄᴋ ɪᴅ: [#TG8836467]({message.link})\n\n"
     reply_message += f"💬 Rᴇᴘᴏʀᴛ ᴛᴇxᴛ: {message.reply_to_message.text if message.reply_to_message else message.text.split(' ', 1)[1]}\n\n"
-    reply_message += f"⏲️ Rᴇᴘᴏʀᴛ ᴛɪᴍᴇ: {report_time}\n"
-    reply_message += f"🗓️ Rᴇᴘᴏʀᴛ ᴅᴀᴛᴇ: {report_date}\n"
-    reply_message += f"⛅ Rᴇᴘᴏʀᴛ ᴅᴀʏ: {report_day}</b>"
+    reply_message += f"⏲️ Rᴇᴘᴏʀᴛ ᴛɪᴍᴇ</b>: <code>{report_time}</code>\n"
+    reply_message += f"<b>🗓️ Rᴇᴘᴏʀᴛ ᴅᴀᴛᴇ</b>: <code>{report_date}</code>\n"
+    reply_message += f"<b>⛅ Rᴇᴘᴏʀᴛ ᴅᴀʏ</b>: <code>{report_day}</code></b>"
 
     report = message.reply_to_message if message.reply_to_message else message
     m = await message.reply_text(reply_message, disable_web_page_preview=True)
