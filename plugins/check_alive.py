@@ -1,7 +1,7 @@
 import time
 import random
 from pyrogram import Client, filters
-import asyncio, time
+import asyncio, time, os
 from info import BOT_START_TIME
 
 CMD = ["/", "."]
