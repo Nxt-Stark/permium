@@ -1,8 +1,11 @@
 import time
 import random
 from pyrogram import Client, filters
+import asyncio, time
+from info import BOT_START_TIME
 
 CMD = ["/", "."]
+STICKER_ID = os.environ.get("STICKER_ID", "CAACAgUAAxkBAAEJuhlktiRdqcdbhfqWwJOTwguHwG_TpwACagQAAu57sVc0PFm_NLNFLS8E CAACAgUAAxkBAAEJuhtktiSMuZs-afg9ntNNxQ_00kT_AgACpgUAAqUpqFfLn6Cv_5l3tS8E CAACAgUAAxkBAAEJuh1ktiSQrSuSKh_89pW8-1dJx6ZouAAC0QYAAvuzqFfw8Fv8XBQuXy8E CAACAgUAAxkBAAEJuh9ktiSTY54kUYxzeUwoY-NSZTH6tgAC1wQAAvUPqFfMiW39BW_QvS8E").split()
 
 @Client.on_message(filters.command("alive", CMD))
 async def check_alive(_, message):
@@ -31,7 +34,13 @@ async def tutorial(_, message):
 @Client.on_message(filters.command("ping", CMD))
 async def ping(_, message):
     start_t = time.time()
-    rm = await message.reply_text("...........")
+    h=await message.reply_sticker(sticker=random.choice(STICKER_ID))
+    rm = await message.reply_text("..")
     end_t = time.time()
     time_taken_s = (end_t - start_t) * 1000
-    await rm.edit(f"Pɪɴɢ🔥!\n{time_taken_s:.3f} ms")
+    currentTime = time.strftime("%d Day | %H Hour | %M Min | %S Sec", time.gmtime(time.time() - BOT_START_TIME))
+    m=await rm.edit(f"🏓 <b>ᴘɪɴɢ</b> : <code>{time_taken_s:.3f} ms</code>\n\n⏰<b> ᴜᴘᴛɪᴍᴇ :  </b><code>{currentTime}</code>")
+    await asyncio.sleep(6)
+    await message.delete()
+    await h.delete()
+    await m.delete()
