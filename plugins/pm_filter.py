@@ -555,7 +555,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton(' 🔍 ʏᴀɴᴅᴇx 🔎', url=f'https://yandex.com/search?text=')
         ],[
             InlineKeyboardButton("🇮🇳 ᴛʀᴀɴsʟᴀᴛᴇ ᴛᴏ ᴍᴀʟᴀʏᴀʟᴀᴍ 🇮🇳", callback_data="malspell")
-        ]] 
+        ]]
+        await query.message.edit_text(script.SPELL_CHECK_ENG, reply_markup=InlineKeyboardMarkup(btn))
     elif query.data == "stats":
         buttons = [[
             InlineKeyboardButton('♻️ Rᴇғʀᴇsʜ', callback_data='rfrsh')
