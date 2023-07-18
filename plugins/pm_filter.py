@@ -504,11 +504,11 @@ async def cb_handler(client: Client, query: CallbackQuery):
         current_datetime = datetime.datetime.now(time_zone)
         current_time = current_datetime.strftime('%I:%M:%S %p')
         uptime_seconds = (current_datetime - deployment_time).total_seconds()
-        uptime_weeks = uptime_seconds // 604800
-        uptime_days = (uptime_seconds % 604800) // 86400
-        uptime_hours = (uptime_seconds % 86400) // 3600
-        uptime_minutes = (uptime_seconds % 3600) // 60
-        uptime_seconds_remaining = uptime_seconds % 60
+        uptime_weeks = int(uptime_seconds // 604800)
+        uptime_days = int((uptime_seconds % 604800) // 86400)
+        uptime_hours = int((uptime_seconds % 86400) // 3600)
+        uptime_minutes = int((uptime_seconds % 3600) // 60)
+        uptime_seconds_remaining = int(uptime_seconds % 60)
 
         await query.answer(f"👋 Hᴇʟʟᴏ {query.from_user.first_name}\n\n⏰ Tɪᴍᴇ : {current_time}\n⚡️ Zᴏɴᴇ : Asia/Kolkata\n⏳ Uᴩᴛɪᴍᴇ : {uptime_weeks} ᴡᴇᴇᴋꜱ, {uptime_days} ᴅᴀʏꜱ, {uptime_hours} ʜᴏᴜʀꜱ, {uptime_minutes} ᴍɪɴᴜᴛᴇꜱ, {uptime_seconds_remaining} ꜱᴇᴄᴏɴᴅꜱ\n\n© Cɪɴɪᴍᴀʟᴏᴋʜᴀᴍ", show_alert=True)
 
