@@ -45,9 +45,38 @@ async def start(client, message):
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='help')
            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        morning_start = 5
+        morning_end = 11
+        afternoon_start = 12
+        afternoon_end = 15
+        evening_start = 16
+        evening_end = 19
+        
+        def convert_utc_to_indian(utc_time):
+            utc = pytz.timezone('UTC')
+            indian = pytz.timezone('Asia/Kolkata')
+            utc_time = datetime.strptime(utc_time, "%Y-%m-%d %H:%M:%S")
+            utc_time = utc.localize(utc_time)
+            indian_time = utc_time.astimezone(indian)
+            return indian_time
+            def get_greeting(indian_time):
+                hour = indian_time.hour
+                
+                if 5 <= hour < 12:
+                    return "Good morning "
+                elif 12 <= hour < 16:
+                    return "Good afternoon "
+                elif 16 <= hour < 20:
+                    return "Good evening "
+                else:
+                    return "Good night "
+                
+                utc_time_str = "2023-07-22 10:30:00"
+                indian_time = convert_utc_to_indian(utc_time_str)
+                greeting = get_greeting(indian_time)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            caption=script.START_TXT.format(greeting, message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
@@ -77,9 +106,38 @@ async def start(client, message):
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='help')
            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        morning_start = 5
+        morning_end = 11
+        afternoon_start = 12
+        afternoon_end = 15
+        evening_start = 16
+        evening_end = 19
+        
+        def convert_utc_to_indian(utc_time):
+            utc = pytz.timezone('UTC')
+            indian = pytz.timezone('Asia/Kolkata')
+            utc_time = datetime.strptime(utc_time, "%Y-%m-%d %H:%M:%S")
+            utc_time = utc.localize(utc_time)
+            indian_time = utc_time.astimezone(indian)
+            return indian_time
+            def get_greeting(indian_time):
+                hour = indian_time.hour
+                
+                if 5 <= hour < 12:
+                    return "Good morning "
+                elif 12 <= hour < 16:
+                    return "Good afternoon "
+                elif 16 <= hour < 20:
+                    return "Good evening "
+                else:
+                    return "Good night "
+                
+                utc_time_str = "2023-07-22 10:30:00"
+                indian_time = convert_utc_to_indian(utc_time_str)
+                greeting = get_greeting(indian_time)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=script.START_TXT.format(message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            caption=script.START_TXT.format(greeting, message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
