@@ -451,6 +451,8 @@ async def cb_handler(client: Client, query: CallbackQuery):
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='help')
             ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+                
+        await query.message.edit_text(
         morning_start = 5
         morning_end = 11
         afternoon_start = 12
@@ -480,8 +482,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 utc_time_str = "2023-07-22 10:30:00"
                 indian_time = convert_utc_to_indian(utc_time_str)
                 greeting = get_greeting(indian_time)
-                
-        await query.message.edit_text(
             text=script.START_TXT.format(greeting, query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
@@ -502,6 +502,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             query.message.id, 
             InputMediaPhoto(random.choice(PICS))
         )
+        await query.message.edit_text(
         morning_start = 5
         morning_end = 11
         afternoon_start = 12
@@ -531,7 +532,6 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 utc_time_str = "2023-07-22 10:30:00"
                 indian_time = convert_utc_to_indian(utc_time_str)
                 greeting = get_greeting(indian_time)
-        await query.message.edit_text(
             text=script.START_TXT.format(greeting, query.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
