@@ -49,6 +49,7 @@ async def start(client, message):
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='help')
            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_photo(
         morning_start = 5
         morning_end = 11
         afternoon_start = 12
@@ -78,7 +79,6 @@ async def start(client, message):
                 utc_time_str = "2023-07-22 10:30:00"
                 indian_time = convert_utc_to_indian(utc_time_str)
                 greeting = get_greeting(indian_time)
-        await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(greeting, message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
@@ -111,6 +111,7 @@ async def start(client, message):
             InlineKeyboardButton('⚡ ᴄʟɪᴄᴋ ʜᴇʀᴇ ꜰᴏʀ ᴍᴏʀᴇ ʙᴜᴛᴛᴏɴs ⚡', callback_data='help')
            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
+        await message.reply_photo(
         morning_start = 5
         morning_end = 11
         afternoon_start = 12
@@ -140,7 +141,6 @@ async def start(client, message):
                 utc_time_str = "2023-07-22 10:30:00"
                 indian_time = convert_utc_to_indian(utc_time_str)
                 greeting = get_greeting(indian_time)
-        await message.reply_photo(
             photo=random.choice(PICS),
             caption=script.START_TXT.format(greeting, message.from_user.mention, temp.U_NAME, temp.B_NAME),
             reply_markup=reply_markup,
