@@ -50,12 +50,12 @@ async def start(client, message):
            ]]
         reply_markup = InlineKeyboardMarkup(buttons)
         await message.reply_photo(
-        morning_start = 5
-        morning_end = 11
-        afternoon_start = 12
-        afternoon_end = 15
-        evening_start = 16
-        evening_end = 19
+        morning_start = 5,
+        morning_end = 11,
+        afternoon_start = 12,
+        afternoon_end = 15,
+        evening_start = 16,
+        evening_end = 19,
         
         def convert_utc_to_indian(utc_time):
             utc = pytz.timezone('UTC')
