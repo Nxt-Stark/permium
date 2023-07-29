@@ -475,7 +475,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         greeting = get_greeting(indian_time)
                 
         await query.message.edit_text(
-            text=script.START_TXT.format(greeting, query.from_user.mention, temp.U_NAME, temp.B_NAME),
+            text=script.START_TXT.format(greeting, query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
        )  
@@ -518,7 +518,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         indian_time = convert_utc_to_indian(utc_time_str)
         greeting = get_greeting(indian_time)
         await query.message.edit_text(
-            text=script.START_TXT.format(greeting, query.from_user.mention, temp.U_NAME, temp.B_NAME),
+            text=script.START_TXT.format(greeting, query.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
        )
