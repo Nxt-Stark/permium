@@ -21,7 +21,6 @@ BATCH_FILES = {}
 import datetime
 import calendar
 import pytz
-from telegram import enums
 from datetime import datetime
 
 @Client.on_message(filters.command("start") & filters.incoming)
