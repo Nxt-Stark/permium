@@ -75,7 +75,7 @@ async def start(client, message):
         
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=script.START_TXT.format(greeting, message.from_user.mention, temp.USER_NAME, temp.BOT_NAME),
+            caption=script.START_TXT.format(greeting, message.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
             )
@@ -130,7 +130,7 @@ async def start(client, message):
         greeting = get_greeting(indian_time)
         await message.reply_photo(
             photo=random.choice(PICS),
-            caption=script.START_TXT.format(greeting, message.from_user.mention, temp.U_NAME, temp.B_NAME),
+            caption=script.START_TXT.format(greeting, message.from_user.mention),
             reply_markup=reply_markup,
             parse_mode=enums.ParseMode.HTML
         )
