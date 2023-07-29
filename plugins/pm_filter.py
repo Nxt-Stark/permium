@@ -457,7 +457,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             utc_time = datetime.strptime(utc_time, "%Y-%m-%d %H:%M:%S")
             utc_time = utc.localize(utc_time)
             indian_time = utc_time.astimezone(indian)
-        return indian_time
+            return indian_time
         
         def get_greeting(indian_time):
             hour = indian_time.hour
@@ -501,7 +501,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             utc_time = datetime.strptime(utc_time, "%Y-%m-%d %H:%M:%S")
             utc_time = utc.localize(utc_time)
             indian_time = utc_time.astimezone(indian)
-        return indian_time
+            return indian_time
         
         def get_greeting(indian_time):
             hour = indian_time.hour
